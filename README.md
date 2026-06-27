@@ -62,8 +62,8 @@ Write Domain (wclk)                        Read Domain (rclk)
   Producer
      │ data_in, w_en
      ▼
-┌─────────────────┐   waddr   ┌──────────────────┐   rd_addr  ┌─────────────────┐
-│  wptr_handler   │──────────▶│  dual_port_ram   │◀──────────│  rptr_handler   │
+┌─────────────────┐   waddr   ┌──────────────────┐   rd_addr ┌─────────────────┐
+│  wptr_handler   │────────── │  dual_port_ram   │◀─────────│  rptr_handler   │
 │                 │           │                  │           │                 │
 │ wptr (binary)   │           │  8 slots × 8bit  │           │  rptr (binary)  │
 │ wptr_gray ──────┼──────┐    │                  │    ┌──────┼── rptr_gray     │
@@ -76,7 +76,7 @@ Write Domain (wclk)                        Read Domain (rclk)
                    │ (2-flop)  │              │ (2-flop)  │
                    │  rclk     │              │  wclk     │
                    └─────┬─────┘              └─────┬─────┘
-                         │ wptr_gray_sync            │ rptr_gray_sync
+                         │ wptr_gray_sync           │ rptr_gray_sync
                          └──────────────────────────┘
                               crosses domain safely
 ```
